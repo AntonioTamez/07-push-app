@@ -23,18 +23,20 @@ export class AppComponent {
 
   OneSignalInit(): void {
     // Uncomment to set OneSignal device logging to VERBOSE  
-    // OneSignal.setLogLevel(6, 0);
+    OneSignal.setLogLevel(6, 0);
 
-    // NOTE: Update the setAppId value below with your OneSignal AppId.
-    OneSignal.setAppId("4834079a-fed3-42c2-b5d5-da6efdc7a9f2");
+    //NOTE: Update the setAppId value below with your OneSignal AppId.
+          OneSignal.setAppId("4834079a-fed3-42c2-b5d5-da6efdc7a9f2");
     OneSignal.setNotificationOpenedHandler(function(jsonData) {
-        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData.notification.additionalData)); 
+        
     });
 
-    // iOS - Prompts the user for notification permissions.
-    OneSignal.promptForPushNotificationsWithUserResponse(function(accepted) {
-        console.log("User accepted notifications: " + accepted);
-    });
+    // //iOS - Prompts the user for notification permissions.
+    // OneSignal.promptForPushNotificationsWithUserResponse(function(accepted) {
+    //     console.log("User accepted notifications: " + accepted);
+    // });
   }
 
 
